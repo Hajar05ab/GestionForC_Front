@@ -1,34 +1,41 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { AuthService } from './auth.service';
 import { Router } from '@angular/router';
+import {FormBuilder, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent {
-  username: string;
-  password: string;
-  error: string;
+export class LoginComponent  implements OnInit{
+  formLogin!: FormGroup;
 
-  constructor(private authService: AuthService, private router: Router) {
-    this.username = '';
-    this.password = '';
-    this.error = '';
+
+  constructor(private fb: FormBuilder,private authService: AuthService, private router: Router) {
+  }
+  ngOnInit(): void {
+    this.formLogin = this.fb.group({
+      username : this.fb.control(""),
+      password : this.fb.control("")
+    })
   }
 
-  login(): void {
-    this.authService.login(this.username, this.password).subscribe(
-      () => {
-        console.log('Authentification réussie');
-        // Redirection vers /dashboard après l'authentification réussie
-        this.router.navigate(['/dashboard']);
+  handleLogin() {
+    let username = this.formLogin.value.username;
+
+    let password = this.formLogin.value.password;
+
+    this.authService.login(username,password).subscribe({
+      next: data => {
+        this.authService.loadProfile(data);
+        this.router.navigateByUrl("/dashboard")
       },
-      error => {
-        console.error('Erreur d\'authentification:', error);
-        this.error = 'Nom d\'utilisateur ou mot de passe incorrect';
+      error : err => {
+        console.log(err)
       }
-    );
+    });
   }
+
+
 }

@@ -2,35 +2,31 @@
 <div class="container">
     <div class="col-md-4 mx-auto">
         <img src="assets/images/logos/m55-removebg-preview.png"  style="display: block; margin: auto;" width="200">
-        <div class="card mb-5"> 
-            
+        <div class="card mb-5">
+
             <div class="card-body">
-                <form (submit)="login()">
+                <form [formGroup]="formLogin" (ngSubmit)="handleLogin()">
                     <div class="form-group text-right">
                         <label class="control-label">
                            Username :
                         </label>
-                        <input type="text" [(ngModel)]="username" name="username" ngModel class="form-control" dir="rtl">
+                      <input type="text" formControlName="username" name="username" ngModel class="form-control" dir="ltr">
                     </div>
                     <div class="form-group text-right">
                         <label class="control-label">
                             Password :
                         </label>
-                        <input type="password" [(ngModel)]="password" name="password" ngModel class="form-control" dir="rtl">
+                        <input type="password" formControlName="password" name="password" ngModel class="form-control" dir="ltr">
                     </div>
                     <br>
-                    <button class="btn btn-block btn-success" (click)="login()" type="submit" style="float: none;">LOGIN</button>
+                    <button class="btn btn-block btn-success"  type="submit" style="float: none;">LOGIN</button>
                 </form>
             </div>
         </div>
     </div>
 </div>
 <div class="footer bg-dark" style="color: white; text-align: center; margin-top: 20px; padding: 10px; position: fixed; bottom: 0; width: 100%;">
-  
+
     <p>By Hajar ABOUJAAFAR - Laayoune &copy; 2024. All Rights Reserved.</p>
-  
+
   </div>
-
-
- 
-  

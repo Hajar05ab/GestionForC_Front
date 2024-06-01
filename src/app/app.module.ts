@@ -23,12 +23,15 @@ import { SpinnerComponent } from './shared/spinner.component';
 import { LoginComponent } from './login/login.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
     SpinnerComponent,
     LoginComponent,
+    
   ],
+  
   imports: [
     CommonModule,
     BrowserModule,

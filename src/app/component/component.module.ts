@@ -11,6 +11,8 @@ import { AffectationComponent } from './affectation/affectation.component';
 import { AbscencesComponent } from './abscences/abscences.component';
 import { UtilisateursComponent } from './utilisateurs/utilisateurs.component';
 import { BilanComponent } from './bilan/bilan.component';
+import { ForcontinueDialogComponent } from './forcontinue/forcontinue-dialog/forcontinue-dialog.component';
+
 
 @NgModule({
   imports: [
@@ -19,6 +21,7 @@ import { BilanComponent } from './bilan/bilan.component';
     FormsModule,
     ReactiveFormsModule,
     NgbModule,
+    
   ],
   declarations: [
     ThematiquesComponent,
@@ -27,7 +30,9 @@ import { BilanComponent } from './bilan/bilan.component';
     AffectationComponent,
     AbscencesComponent,
     UtilisateursComponent,
-    BilanComponent
+    BilanComponent,
+    
+   
   ],
 })
 export class ComponentsModule { }
