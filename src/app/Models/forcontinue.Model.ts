@@ -1,5 +1,5 @@
 export interface ForContinue {
     id: number;
-    DureeJrs: Date;
+    Duree_Jrs: number;
     Annee: number;
   }

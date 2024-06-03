@@ -10,8 +10,9 @@ import { ForcontinueComponent } from './forcontinue/forcontinue.component';
 import { AffectationComponent } from './affectation/affectation.component';
 import { AbscencesComponent } from './abscences/abscences.component';
 import { UtilisateursComponent } from './utilisateurs/utilisateurs.component';
-import { BilanComponent } from './bilan/bilan.component';
 import { ForcontinueDialogComponent } from './forcontinue/forcontinue-dialog/forcontinue-dialog.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AppHttpInterceptor } from '../interceptors/app-http.interceptor';
 
 
 @NgModule({
@@ -30,9 +31,15 @@ import { ForcontinueDialogComponent } from './forcontinue/forcontinue-dialog/for
     AffectationComponent,
     AbscencesComponent,
     UtilisateursComponent,
-    BilanComponent,
+    
     
    
+  ],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS, useClass : AppHttpInterceptor, multi : true ,
+      
+    },
   ],
 })
 export class ComponentsModule { }

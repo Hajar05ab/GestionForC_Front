@@ -1,6 +1,5 @@
-<!-- forcontinue.component.html -->
 <div class="container mt-4">
-    <button class="btn btn-primary mb-3" (click)="addForContinue()">Add ForContinue</button>
+    <button class="btn btn-primary mb-3" (click)="addForContinue()">Ajouter ForContinue</button>
     <table class="table">
       <thead>
         <tr>
@@ -12,12 +11,12 @@
       </thead>
       <tbody>
         <tr *ngFor="let forcontinue of forContinues">
-          <td>{{ forcontinue.id }}</td>
-          <td>{{ forcontinue.DureeJrs }}</td>
+          <td>{{ forcontinue.id}}</td>
+          <td>{{ forcontinue.Duree_Jrs }}</td>
           <td>{{ forcontinue.Annee }}</td>
           <td>
-            <button class="btn btn-warning btn-sm" (click)="editForContinue(forcontinue)">Edit</button>
-            <button class="btn btn-danger btn-sm" >Delete</button>
+            <button class="btn btn-warning btn-sm" (click)="editForContinue(forcontinue)">Modifier</button>
+            <button class="btn btn-danger btn-sm" (click)="deleteForContinue(forcontinue.id)" >Supprimer</button>
           </td>
         </tr>
       </tbody>

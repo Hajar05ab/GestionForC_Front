@@ -1,7 +1,6 @@
 import { Routes } from '@angular/router';
 import { DashboardComponent } from '../dashboard/dashboard.component';
 import { LoginComponent } from '../login/login.component';
-import { BilanComponent } from './bilan/bilan.component';
 import { ForcontinueComponent } from './forcontinue/forcontinue.component';
 import { AbscencesComponent } from './abscences/abscences.component';
 import { BeneficiairesComponent } from './beneficiaires/beneficiaires.component';
@@ -16,10 +15,6 @@ export const ComponentsRoutes: Routes = [
 			{
 				path: 'Login',
 				component: LoginComponent
-			},
-			{
-				path: 'Bilan',
-				component: BilanComponent
 			},
 			{
 				path: 'ForContinue',

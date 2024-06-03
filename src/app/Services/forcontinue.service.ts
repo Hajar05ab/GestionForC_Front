@@ -8,23 +8,23 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ForcontinueService {
 
-  private apiUrl = 'http://localhost:8095/api/forContinues';
+  private api = 'http://localhost:8095/api/forContinues';
 
   constructor(private http: HttpClient) { }
 
   getForContinues() {
-    return this.http.get<ForContinue[]>(this.apiUrl);
+    return this.http.get<ForContinue[]>(this.api);
   }
 
   createForContinue(forcontinue: ForContinue){
-    return this.http.post<ForContinue>(this.apiUrl + '/save', forcontinue);
+    return this.http.post<ForContinue>(this.api + '/save', forcontinue);
   }
 
   updateForContinue(id: number, forcontinue: ForContinue){
-    return this.http.put<ForContinue>(`${this.apiUrl}/update/${id}`, forcontinue);
+    return this.http.put<ForContinue>(`${this.api}/update/${id}`, forcontinue);
   }
 
   deleteForContinue(id: number){
-    return this.http.delete<void>(`${this.apiUrl}/delete/${id}`);
+    return this.http.delete<void>(`${this.api}/delete/${id}`);
   }
 }
