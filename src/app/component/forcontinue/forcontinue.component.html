@@ -12,10 +12,12 @@
       <tbody>
         <tr *ngFor="let forcontinue of forContinues">
           <td>{{ forcontinue.id}}</td>
-          <td>{{ forcontinue.Duree_Jrs }}</td>
-          <td>{{ forcontinue.Annee }}</td>
+          <td>{{ forcontinue.duree_Jrs }}</td>
+          <td>{{ forcontinue.annee }}</td>
+          
+          
           <td>
-            <button class="btn btn-warning btn-sm" (click)="editForContinue(forcontinue)">Modifier</button>
+            <button class="btn btn-warning btn-sm me-4" (click)="editForContinue(forcontinue)">Modifier</button>
             <button class="btn btn-danger btn-sm" (click)="deleteForContinue(forcontinue.id)" >Supprimer</button>
           </td>
         </tr>

@@ -5,7 +5,7 @@ import {
   PathLocationStrategy
 } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -22,7 +22,7 @@ import { AppComponent } from './app.component';
 import { SpinnerComponent } from './shared/spinner.component';
 import { LoginComponent } from './login/login.component';
 import { AppHttpInterceptor } from './interceptors/app-http.interceptor';
-
+import { ForcontinueDialogComponent } from 'src/app/component/forcontinue/forcontinue-dialog/forcontinue-dialog.component';
 
 
 @NgModule({
@@ -30,6 +30,7 @@ import { AppHttpInterceptor } from './interceptors/app-http.interceptor';
     AppComponent,
     SpinnerComponent,
     LoginComponent,
+    ForcontinueDialogComponent,
     
   ],
   
@@ -45,6 +46,7 @@ import { AppHttpInterceptor } from './interceptors/app-http.interceptor';
     FullComponent,
     NavigationComponent,
     SidebarComponent,
+    
   ],
   providers: [
     {

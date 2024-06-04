@@ -16,27 +16,35 @@ export class ForcontinueComponent implements OnInit {
   constructor(private forcontinueService: ForcontinueService, private modalService: NgbModal) {}
 
   ngOnInit(): void {
-    this.forcontinueService.getForContinues().subscribe(
-      response =>this.handleSuccessfulResponse(response),
-     );
+    this.loadForContinues();
   }
+
   handleSuccessfulResponse(response: any)
 {
-    this.forContinues=response;
+  if (Array.isArray(response)) {
+    this.forContinues = response;
+  } else {
+    console.error('Error: Unexpected response format', response);
+  }
 }
 
   loadForContinues() {
+    console.log("++++")
     this.forcontinueService.getForContinues().subscribe(forContinues => {
+      console.log("liste formation")
+      console.log(forContinues)
       this.forContinues = forContinues;
     });
   }
 
   addForContinue() {
     const modalRef = this.modalService.open(ForcontinueDialogComponent);
+    console.log(modalRef.componentInstance.data)
     modalRef.componentInstance.data = { forcontinue: {} };
     modalRef.result.then((result: ForContinue) => {
       if (result) {
         this.forcontinueService.createForContinue(result).subscribe(() => {
+          console.log("ajouter")
           this.loadForContinues();
         });
       }

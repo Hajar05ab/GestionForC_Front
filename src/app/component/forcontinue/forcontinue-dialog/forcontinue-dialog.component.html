@@ -1,13 +1,13 @@
 
   <div class="modal-body">
-    <form >
-      <div class="form-group">
-        <label for="dureeJrs">Durée en jours</label>
-        <input type="number" formControlName="dureeJrs" name="dureeJrs"  class="form-control" dir="ltr">
-      </div>
+     <form [formGroup]="forcontinueForm">
       <div class="form-group">
         <label for="annee">Année</label>
-        <input type="number" formControlName="annee" name="annee"  class="form-control" dir="ltr">
+        <input type="number" id="annee" formControlName="annee" class="form-control" [(ngModel)]="forcontinue.annee" autocomplete="off" dir="ltr" required>
+      </div>
+      <div class="form-group">
+        <label for="duree_Jrs">Durée_Jrs</label>
+        <input type="number" id="duree_Jrs" formControlName="duree_Jrs" class="form-control" [(ngModel)]="forcontinue.duree_Jrs" autocomplete="off" dir="ltr" required>
       </div>
     </form>
   </div>
