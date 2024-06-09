@@ -10,7 +10,6 @@ import { ForcontinueDialogComponent } from './forcontinue-dialog/forcontinue-dia
   styleUrls: ['./forcontinue.component.scss']
 })
 export class ForcontinueComponent implements OnInit {
-
   forContinues: ForContinue[] = [];
 
   constructor(private forcontinueService: ForcontinueService, private modalService: NgbModal) {}
@@ -19,32 +18,19 @@ export class ForcontinueComponent implements OnInit {
     this.loadForContinues();
   }
 
-  handleSuccessfulResponse(response: any)
-{
-  if (Array.isArray(response)) {
-    this.forContinues = response;
-  } else {
-    console.error('Error: Unexpected response format', response);
-  }
-}
-
   loadForContinues() {
-    console.log("++++")
     this.forcontinueService.getForContinues().subscribe(forContinues => {
-      console.log("liste formation")
-      console.log(forContinues)
       this.forContinues = forContinues;
     });
   }
 
   addForContinue() {
     const modalRef = this.modalService.open(ForcontinueDialogComponent);
-    console.log(modalRef.componentInstance.data)
-    modalRef.componentInstance.data = { forcontinue: {} };
+    modalRef.componentInstance.forcontinue = { duree_Jrs: 0, annee: new Date().getFullYear() };
     modalRef.result.then((result: ForContinue) => {
       if (result) {
+        console.log('Adding ForContinue:', result); // Log the result for debugging
         this.forcontinueService.createForContinue(result).subscribe(() => {
-          console.log("ajouter")
           this.loadForContinues();
         });
       }
@@ -53,9 +39,10 @@ export class ForcontinueComponent implements OnInit {
 
   editForContinue(forcontinue: ForContinue) {
     const modalRef = this.modalService.open(ForcontinueDialogComponent);
-    modalRef.componentInstance.data = { forcontinue: { ...forcontinue } };
+    modalRef.componentInstance.forcontinue = { ...forcontinue };
     modalRef.result.then((result: ForContinue) => {
-      if (result) {
+      if (result && forcontinue.id !== undefined) {
+        console.log('Updating ForContinue:', result); // Log the result for debugging
         this.forcontinueService.updateForContinue(forcontinue.id, result).subscribe(() => {
           this.loadForContinues();
         });
@@ -69,7 +56,5 @@ export class ForcontinueComponent implements OnInit {
         this.loadForContinues();
       });
     }
- 
   }
-
 }

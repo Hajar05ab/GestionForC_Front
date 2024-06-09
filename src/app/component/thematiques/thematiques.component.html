@@ -1,1 +1,38 @@
-<p>thematiques works!</p>
+<div class="container mt-4">
+  <button class="btn btn-primary mb-3" (click)="addThematique()">Ajouter Thematique</button>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Intitulé</th>
+        <th scope="col">Nbr de jours</th>
+        <th scope="col">Nbr de groupes</th>
+        <th scope="col">formateurs intr</th>
+        <th scope="col">formateurs extr</th>
+        <th scope="col">Date_début</th>
+        <th scope="col">Date_fin</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let thematique of thematiques">
+        <td>{{ thematique.id }}</td>
+        <td>{{ thematique.intitule }}</td>
+        <td>{{ thematique.nbrJrs }}</td>
+        <td>{{ thematique.nbrGrp }}</td>
+        <td>{{ thematique.nbrForIntr }}</td>
+        <td>{{ thematique.nbrForExtr }}</td>
+        <td>{{ thematique.dateDebut | date }}</td>
+        <td>{{ thematique.dateFin | date }}</td>
+        <td>
+          <button class="btn btn-warning btn-sm me-4" (click)="editThematique(thematique)">
+            <i class="bi bi-pencil-square"></i> <!-- Icône de modification -->
+          </button>
+          <button class="btn btn-danger btn-sm" *ngIf="thematique.id !== undefined" (click)="deleteThematique(thematique.id!)">
+            <i class="bi bi-trash"></i> <!-- Icône de suppression -->
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

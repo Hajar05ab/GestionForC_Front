@@ -1,17 +1,20 @@
-
-  <div class="modal-body">
-     <form [formGroup]="forcontinueForm">
-      <div class="form-group">
-        <label for="annee">Année</label>
-        <input type="number" id="annee" formControlName="annee" class="form-control" [(ngModel)]="forcontinue.annee" autocomplete="off" dir="ltr" required>
+<div class="modal-header">
+  <h4 class="modal-title">ForContinue Form</h4>
+  <button type="button" class="btn-close" aria-label="Close" (click)="onNoClick()"></button>
+</div>
+<div class="modal-body">
+  <form [formGroup]="forcontinueForm" (ngSubmit)="save()">
+      <div class="mb-3">
+          <label for="duree_Jrs" class="form-label">Durée (Jours)</label>
+          <input type="number" class="form-control" id="duree_Jrs" formControlName="duree_Jrs">
       </div>
-      <div class="form-group">
-        <label for="duree_Jrs">Durée_Jrs</label>
-        <input type="number" id="duree_Jrs" formControlName="duree_Jrs" class="form-control" [(ngModel)]="forcontinue.duree_Jrs" autocomplete="off" dir="ltr" required>
+      <div class="mb-3">
+          <label for="annee" class="form-label">Année</label>
+          <input type="number" class="form-control" id="annee" formControlName="annee">
       </div>
-    </form>
-  </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-secondary" (click)="onNoClick()">Fermer</button>
-    <button type="button" class="btn btn-primary" (click)="save()">Enregistrer</button>
-  </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" (click)="onNoClick()">Annuler</button>
+  <button type="button" class="btn btn-primary" (click)="save()">Sauvegarder</button>
+</div>

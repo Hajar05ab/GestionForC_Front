@@ -17,6 +17,7 @@ export class ForcontinueService {
   }
 
   createForContinue(forcontinue: ForContinue){
+    console.log('Creating ForContinue:', forcontinue); // Log the object being sent to the server
     return this.http.post<ForContinue>(this.api + '/save', forcontinue);
   }
 

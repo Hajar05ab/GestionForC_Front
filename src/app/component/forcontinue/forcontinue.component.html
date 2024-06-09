@@ -1,27 +1,28 @@
 <div class="container mt-4">
-    <button class="btn btn-primary mb-3" (click)="addForContinue()">Ajouter ForContinue</button>
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">ID</th>
-          <th scope="col">DureeJrs</th>
-          <th scope="col">Annee</th>
-          <th scope="col">Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let forcontinue of forContinues">
-          <td>{{ forcontinue.id}}</td>
-          <td>{{ forcontinue.duree_Jrs }}</td>
-          <td>{{ forcontinue.annee }}</td>
-          
-          
-          <td>
-            <button class="btn btn-warning btn-sm me-4" (click)="editForContinue(forcontinue)">Modifier</button>
-            <button class="btn btn-danger btn-sm" (click)="deleteForContinue(forcontinue.id)" >Supprimer</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  
+  <button class="btn btn-primary mb-3" (click)="addForContinue()">Ajouter ForContinue</button>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">DureeJrs</th>
+        <th scope="col">Annee</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let forcontinue of forContinues">
+        <td>{{ forcontinue.id }}</td>
+        <td>{{ forcontinue.duree_Jrs }}</td>
+        <td>{{ forcontinue.annee }}</td>
+        <td>
+          <button class="btn btn-warning btn-sm me-4" (click)="editForContinue(forcontinue)">
+            <i class="bi bi-pencil-square"></i> <!-- Icône de modification -->
+          </button>
+          <button class="btn btn-danger btn-sm" *ngIf="forcontinue.id !== undefined" (click)="deleteForContinue(forcontinue.id!)">
+            <i class="bi bi-trash"></i> <!-- Icône de suppression -->
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

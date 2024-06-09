@@ -4,7 +4,7 @@ import {
   CommonModule, LocationStrategy,
   PathLocationStrategy
 } from '@angular/common';
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
@@ -23,14 +23,14 @@ import { SpinnerComponent } from './shared/spinner.component';
 import { LoginComponent } from './login/login.component';
 import { AppHttpInterceptor } from './interceptors/app-http.interceptor';
 import { ForcontinueDialogComponent } from 'src/app/component/forcontinue/forcontinue-dialog/forcontinue-dialog.component';
-
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
     AppComponent,
     SpinnerComponent,
     LoginComponent,
-    ForcontinueDialogComponent,
+    
     
   ],
   
@@ -46,7 +46,7 @@ import { ForcontinueDialogComponent } from 'src/app/component/forcontinue/forcon
     FullComponent,
     NavigationComponent,
     SidebarComponent,
-    
+    NgxPaginationModule,
   ],
   providers: [
     {

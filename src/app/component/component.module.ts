@@ -13,7 +13,8 @@ import { UtilisateursComponent } from './utilisateurs/utilisateurs.component';
 import { ForcontinueDialogComponent } from './forcontinue/forcontinue-dialog/forcontinue-dialog.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppHttpInterceptor } from '../interceptors/app-http.interceptor';
-
+import { NgxPaginationModule } from 'ngx-pagination';
+import { ThematiquesDialogComponent } from './thematiques/thematiques-dialog/thematiques-dialog.component';
 
 @NgModule({
   imports: [
@@ -22,6 +23,7 @@ import { AppHttpInterceptor } from '../interceptors/app-http.interceptor';
     FormsModule,
     ReactiveFormsModule,
     NgbModule,
+    NgxPaginationModule,
     
   ],
   declarations: [
@@ -31,6 +33,8 @@ import { AppHttpInterceptor } from '../interceptors/app-http.interceptor';
     AffectationComponent,
     AbscencesComponent,
     UtilisateursComponent,
+    ThematiquesDialogComponent,
+    ForcontinueDialogComponent,
     
     
    

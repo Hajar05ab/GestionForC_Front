@@ -1,46 +1,41 @@
-import { Component } from '@angular/core';
-import { OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ForContinue } from 'src/app/Models/forcontinue.Model';
-import {FormBuilder} from "@angular/forms";
-import { FormGroup } from '@angular/forms';
-import { Validators } from '@angular/forms';
+
 @Component({
   selector: 'app-forcontinue-dialog',
   templateUrl: './forcontinue-dialog.component.html',
   styleUrls: ['./forcontinue-dialog.component.scss']
-  
 })
-export class ForcontinueDialogComponent  implements OnInit{
-  forContinues: ForContinue[] = [];
+export class ForcontinueDialogComponent implements OnInit {
   forcontinueForm!: FormGroup;
-  forcontinue: ForContinue = {id:0, duree_Jrs: 0, annee: new Date().getFullYear() }; // Initialize with default values
+  forcontinue: ForContinue = { id: 0, duree_Jrs: 0, annee: new Date().getFullYear() };
 
-
-
-  constructor(private fb: FormBuilder,
-    public activeModal: NgbActiveModal, 
-  ) {}
+  constructor(private fb: FormBuilder, public activeModal: NgbActiveModal) {}
 
   ngOnInit(): void {
     this.forcontinueForm = this.fb.group({
-      duree_Jrs: [0, Validators.required], // initialiser avec valeur par defaut 0
-      annee: [new Date().getFullYear(), Validators.required] // initialiser avec current year
+      duree_Jrs: [this.forcontinue.duree_Jrs, Validators.required],
+      annee: [this.forcontinue.annee, Validators.required]
     });
   }
-
 
   save() {
     if (this.forcontinueForm.valid) {
       // Update the `forcontinue` object with the form values
       this.forcontinue.duree_Jrs = this.forcontinueForm.get('duree_Jrs')?.value;
-      this.forcontinue.annee = this.forcontinueForm.get('annee')?.value;     
+      this.forcontinue.annee = this.forcontinueForm.get('annee')?.value;
+
+      // Log the values for debugging
+      console.log('Updated Forcontinue Object:', this.forcontinue);
+      console.log('Form Values:', this.forcontinueForm.value);
+
       this.activeModal.close(this.forcontinue); // Pass the updated `forcontinue` object
     }
   }
 
   onNoClick(): void {
-    this.activeModal.dismiss('Cross click'); // dismiss sert à fermer la modal
+    this.activeModal.dismiss('Cross click'); // dismiss serves to close the modal
   }
-
 }
