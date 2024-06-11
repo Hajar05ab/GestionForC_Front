@@ -1,41 +1,52 @@
 <div class="modal-header">
-    <h4 class="modal-title">Formulaire Bénéficiaire</h4>
-    <button type="button" class="btn-close" aria-label="Close" (click)="cancel()"></button>
-  </div>
-  <div class="modal-body">
-    <form [formGroup]="beneficiaireForm">
-      <div class="mb-3">
-        <label for="cne" class="form-label">CNE</label>
-        <input type="text" class="form-control" id="cne" formControlName="cne">
-      </div>
-      <div class="mb-3">
-        <label for="nom" class="form-label">Nom</label>
-        <input type="text" class="form-control" id="nom" formControlName="nom">
-      </div>
-      <div class="mb-3">
-        <label for="telephone" class="form-label">Téléphone</label>
-        <input type="text" class="form-control" id="telephone" formControlName="telephone">
-      </div>
-      <div class="mb-3">
-        <label for="email" class="form-label">Email</label>
-        <input type="email" class="form-control" id="email" formControlName="email">
-      </div>
-      <div class="mb-3">
-        <label for="thematiques" class="form-label">Thématiques</label>
-        <select class="form-select" formControlName="thematiques" multiple>
-          <option *ngFor="let thematique of thematiques" [ngValue]="thematique">{{ thematique.intitule }}</option>
-        </select>
-      </div>
-      <div class="mb-3">
-        <label for="forContinues" class="form-label">Formations Continues</label>
-        <select class="form-select" formControlName="forContinue" multiple>
-          <option *ngFor="let forContinue of forContinues" [ngValue]="forContinue">{{ forContinue.duree_Jrs }} jours - {{ forContinue.annee }}</option>
-        </select>
-      </div>
-    </form>
-  </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-secondary" (click)="cancel()">Annuler</button>
-    <button type="button" class="btn btn-primary" (click)="save()">Sauvegarder</button>
-  </div>
-  
+  <h4 class="modal-title">Ajouter Bénéficiaire</h4>
+  <button type="button" class="btn-close" aria-label="Close" (click)="cancel()"></button>
+</div>
+<div class="modal-body">
+  <form [formGroup]="beneficiaireForm">
+    <div class="mb-3">
+      <label for="cne" class="form-label">CNE</label>
+      <input type="text" class="form-control" id="cne" formControlName="cne">
+    </div>
+    <div class="mb-3">
+      <label for="nom" class="form-label">Nom</label>
+      <input type="text" class="form-control" id="nom" formControlName="nom">
+    </div>
+    <div class="mb-3">
+      <label for="telephone" class="form-label">Téléphone</label>
+      <input type="text" class="form-control" id="telephone" formControlName="telephone">
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" class="form-control" id="email" formControlName="email">
+    </div>
+    <div class="mb-3">
+      <label for="thematiques" class="form-label">Thématiques</label>
+      <select class="form-select" formControlName="thematiques" multiple>
+        <option *ngFor="let thematique of thematiques" [ngValue]="thematique">{{ thematique.intitule }}</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="forContinues" class="form-label">Formations Continues</label>
+      <select class="form-select" formControlName="forContinue" multiple>
+        <option *ngFor="let forContinue of forContinues" [ngValue]="forContinue">{{ forContinue.duree_Jrs }} jours - {{ forContinue.annee }}</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="affectations" class="form-label">Affectations</label>
+      <select class="form-select" formControlName="affectation" multiple>
+        <option *ngFor="let affectation of affectations" [ngValue]="affectation">{{ affectation.numGrp }}</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="diplomes" class="form-label">Diplômes</label>
+      <select class="form-select" formControlName="diplome" multiple>
+        <option *ngFor="let diplome of diplomes" [ngValue]="diplome">{{ diplome.diplomeNom }}</option>
+      </select>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" (click)="cancel()">Annuler</button>
+  <button type="button" class="btn btn-primary" (click)="save()">Sauvegarder</button>
+</div>

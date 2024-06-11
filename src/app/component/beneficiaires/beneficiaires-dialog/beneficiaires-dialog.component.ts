@@ -4,7 +4,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Beneficiaire } from 'src/app/Models/beneficiaire.Model';
 import { ThematiqueService } from 'src/app/Services/thematique.service';
 import { ForcontinueService } from 'src/app/Services/forcontinue.service';
-
+import { AffectationService } from 'src/app/Services/affectation.service';
+import { DiplomeService } from 'src/app/Services/diplome.service';
 import { Thematique } from 'src/app/Models/thematique.Model';
 import { ForContinue } from 'src/app/Models/forcontinue.Model';
 import { Affectation } from 'src/app/Models/affectation.Model';
@@ -28,7 +29,8 @@ export class BeneficiairesDialogComponent implements OnInit {
     private fb: FormBuilder,
     private thematiqueService: ThematiqueService,
     private forcontinueService: ForcontinueService,
-  
+    private affectationService: AffectationService,
+    private diplomeService: DiplomeService
   ) {}
 
   ngOnInit(): void {
@@ -37,14 +39,16 @@ export class BeneficiairesDialogComponent implements OnInit {
       nom: [this.beneficiaire.nom, Validators.required],
       telephone: [this.beneficiaire.telephone, Validators.required],
       email: [this.beneficiaire.email, [Validators.required, Validators.email]],
-    
+      affectation: [this.beneficiaire.affectation, Validators.required],
+      diplome: [this.beneficiaire.diplome, Validators.required],
       forContinue: [this.beneficiaire.forContinue, Validators.required],
       thematiques: [this.beneficiaire.thematiques, Validators.required]
     });
 
     this.loadThematiques();
     this.loadForContinues();
-    
+    this.loadAffectations();
+    this.loadDiplomes();
   }
 
   loadThematiques() {
@@ -55,7 +59,13 @@ export class BeneficiairesDialogComponent implements OnInit {
     this.forcontinueService.getForContinues().subscribe(data => this.forContinues = data);
   }
 
- 
+  loadAffectations() {
+    this.affectationService.getAffectations().subscribe(data => this.affectations = data);
+  }
+
+  loadDiplomes() {
+    this.diplomeService.getDiplomes().subscribe(data => this.diplomes = data);
+  }
 
   save() {
     if (this.beneficiaireForm.valid) {

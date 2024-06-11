@@ -1,0 +1,25 @@
+<div class="modal-header">
+    <h4 class="modal-title">Formulaire Diplôme</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="onNoClick()"></button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="diplomeForm" (ngSubmit)="save()">
+        <div class="mb-3">
+            <label for="diplomeNom" class="form-label">Nom du Diplôme</label>
+            <input type="text" class="form-control" id="diplomeNom" formControlName="diplomeNom">
+        </div>
+        <div class="mb-3">
+            <label for="specialite" class="form-label">Spécialité</label>
+            <input type="text" class="form-control" id="specialite" formControlName="specialite">
+        </div>
+        <div class="mb-3">
+            <label for="nivEtude" class="form-label">Niveau d'Étude</label>
+            <input type="text" class="form-control" id="nivEtude" formControlName="nivEtude">
+        </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="onNoClick()">Annuler</button>
+    <button type="button" class="btn btn-primary" (click)="save()">Sauvegarder</button>
+  </div>
+  

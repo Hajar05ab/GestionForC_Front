@@ -50,9 +50,17 @@ export const ROUTES: RouteInfo[] = [
     extralink: false,
     submenu: []
   },
+  {
+    path: '/component/Diplome',
+    title: 'Diplomes',
+    icon: 'bi bi-journal-medical',
+    class: '',
+    extralink: false,
+    submenu: []
+  },
 
   {
-    path: '/component/utilisateurs',
+    path: '/component/Utilisateurs',
     title: 'Utilisateurs',
     icon: 'bi bi-person-video2',
     class: '',

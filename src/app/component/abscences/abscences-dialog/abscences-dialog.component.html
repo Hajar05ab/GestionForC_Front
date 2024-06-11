@@ -1,0 +1,27 @@
+<div class="modal-header">
+    <h4 class="modal-title">Formulaire Absence</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="cancel()"></button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="abscenceForm" (ngSubmit)="save()">
+      <div class="mb-3">
+        <label for="beneficiaire" class="form-label">Bénéficiaire</label>
+        <select class="form-select" id="beneficiaire" formControlName="beneficiaire" required>
+          <option *ngFor="let benef of abscence.beneficiaire" [ngValue]="benef">{{ benef.nom }} - {{ benef.cne }}</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="etatAbs" class="form-label">État de l'Absence</label>
+        <input type="text" class="form-control" id="etatAbs" formControlName="etatAbs">
+      </div>
+      <div class="mb-3">
+        <label for="dateAbs" class="form-label">Date de l'Absence</label>
+        <input type="date" class="form-control" id="dateAbs" formControlName="dateAbs">
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="cancel()">Annuler</button>
+    <button type="button" class="btn btn-primary" (click)="save()">Sauvegarder</button>
+  </div>
+  
