@@ -1,1 +1,57 @@
-<p>beneficiaires works!</p>
+<div class="container mt-4">
+    <button class="btn btn-primary mb-3" (click)="addBeneficiaire()">Ajouter Bénéficiaire</button>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">CNE</th>
+          <th scope="col">Nom</th>
+          <th scope="col">Téléphone</th>
+          <th scope="col">Email</th>
+          <th scope="col">Affectations</th>
+          <th scope="col">Diplômes</th>
+          <th scope="col">For.Continues</th>
+          <th scope="col">Thématiques</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let beneficiaire of beneficiaires">
+          <td>{{ beneficiaire.id }}</td>
+          <td>{{ beneficiaire.cne }}</td>
+          <td>{{ beneficiaire.nom }}</td>
+          <td>{{ beneficiaire.telephone }}</td>
+          <td>{{ beneficiaire.email }}</td>
+          <td>
+            <ul>
+              <li *ngFor="let affectation of beneficiaire.affectation">{{ affectation.numGrp }}</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li *ngFor="let diplome of beneficiaire.diplome">{{ diplome.diplomeNom }}</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li *ngFor="let forContinue of beneficiaire.forContinue">{{ forContinue.duree_Jrs }} jours - {{ forContinue.annee }}</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li *ngFor="let thematique of beneficiaire.thematiques">{{ thematique.intitule }}</li>
+            </ul>
+          </td>
+          <td>
+            <button class="btn btn-warning btn-sm me-4" (click)="editBeneficiaire(beneficiaire)">
+              <i class="bi bi-pencil-square"></i> <!-- Icône de modification -->
+            </button>
+            <button class="btn btn-danger btn-sm" *ngIf="beneficiaire.id !== undefined" (click)="deleteBeneficiaire(beneficiaire.id!)">
+              <i class="bi bi-trash"></i> <!-- Icône de suppression -->
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

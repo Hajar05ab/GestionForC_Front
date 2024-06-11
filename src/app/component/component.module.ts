@@ -15,6 +15,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppHttpInterceptor } from '../interceptors/app-http.interceptor';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ThematiquesDialogComponent } from './thematiques/thematiques-dialog/thematiques-dialog.component';
+import { BeneficiairesDialogComponent } from './beneficiaires/beneficiaires-dialog/beneficiaires-dialog.component';
+import { AffectationDialogComponent } from './affectation/affectation-dialog/affectation-dialog.component';
 
 @NgModule({
   imports: [
@@ -35,6 +37,8 @@ import { ThematiquesDialogComponent } from './thematiques/thematiques-dialog/the
     UtilisateursComponent,
     ThematiquesDialogComponent,
     ForcontinueDialogComponent,
+    BeneficiairesDialogComponent,
+    AffectationDialogComponent,
     
     
    

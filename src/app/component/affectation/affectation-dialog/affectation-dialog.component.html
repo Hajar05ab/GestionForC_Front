@@ -1,0 +1,18 @@
+<div class="modal-header">
+    <h4 class="modal-title">Formulaire Affectation</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="onNoClick()"></button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="affectationForm">
+      <div class="mb-3">
+        <label for="numGrp" class="form-label">Numéro de Groupe</label>
+        <input type="number" class="form-control" id="numGrp" formControlName="numGrp">
+      </div>
+      
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="onNoClick()">Annuler</button>
+    <button type="button" class="btn btn-primary" (click)="save()">Sauvegarder</button>
+  </div>
+  
