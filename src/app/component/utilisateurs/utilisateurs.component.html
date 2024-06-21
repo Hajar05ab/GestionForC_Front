@@ -1,0 +1,33 @@
+<div class="container mt-4">
+    <button class="btn btn-primary mb-3" (click)="addUtilisateur()">Ajouter Utilisateur</button>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Nom d'utilisateur</th>
+          <th scope="col">Rôles</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let utilisateur of utilisateurs">
+          <td>{{ utilisateur.id }}</td>
+          <td>{{ utilisateur.username }}</td>
+          <td>
+            <ul>
+              <li *ngFor="let role of utilisateur.roles">{{ role.nom }}</li>
+            </ul>
+          </td>
+          <td>
+            <button class="btn btn-warning btn-sm me-4" (click)="editUtilisateur(utilisateur)">
+              <i class="bi bi-pencil-square"></i> <!-- Icône de modification -->
+            </button>
+            <button class="btn btn-danger btn-sm" *ngIf="utilisateur.id !== undefined" (click)="deleteUtilisateur(utilisateur.id!)">
+              <i class="bi bi-trash"></i> <!-- Icône de suppression -->
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

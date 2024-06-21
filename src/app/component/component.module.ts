@@ -20,6 +20,7 @@ import { AffectationDialogComponent } from './affectation/affectation-dialog/aff
 import { DiplomeComponent } from './diplome/diplome.component';
 import { DiplomeDialogComponent } from './diplome/diplome-dialog/diplome-dialog.component';
 import { AbscencesDialogComponent } from './abscences/abscences-dialog/abscences-dialog.component';
+import { UtilisateurDialogComponent } from './utilisateurs/utilisateur-dialog/utilisateur-dialog.component';
 
 @NgModule({
   imports: [
@@ -45,6 +46,7 @@ import { AbscencesDialogComponent } from './abscences/abscences-dialog/abscences
     DiplomeComponent,
     DiplomeDialogComponent,
     AbscencesDialogComponent,
+    UtilisateurDialogComponent,
     
     
    
